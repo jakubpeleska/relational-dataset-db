@@ -5,9 +5,11 @@ services:
   mariadb:
     container_name: dataset-db-mariadb
     image: mariadb:10.6.12
-    restart: always #unless-stopped
+    restart: always
     ports:
       - 3306:3306
+    networks:
+      - private-net
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_PASSWORD: password
@@ -18,9 +20,11 @@ services:
   postgres:
     container_name: dataset-db-postgres
     image: postgres:16.1
-    restart: always #unless-stopped
+    restart: always
     ports:
-      - 5432:5432
+      - 6543:5432
+    networks:
+      - private-net
     command: postgres -c 'max_connections=1000' -c 'shared_buffers=500MB'
     environment:
       POSTGRES_PASSWORD: password
@@ -28,7 +32,7 @@ services:
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
 
-# networks:
-#   app-network:
-#     driver: bridge
-  
+networks:
+  private-net:
+    external:
+      name: dataset-db-net
