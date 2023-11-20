@@ -22,7 +22,7 @@ migrate_db(){
   echo "Creating new database $db in Postgres"
   docker exec dataset-db-postgres createdb $db
   echo "Migrating $db data from MariaDB to Postgres"
-  docker run --rm --network=dataset-db-net dimitri/pgloader:v3.6.7 pgloader mysql://root:password@dataset-db-mariadb:3306/$db postgresql://root:password@dataset-db-postgres:5432/$db
+  docker run --rm --network=dataset-db-net dimitri/pgloader:v3.6.7 pgloader --with "batch size = 10MB" mysql://root:password@dataset-db-mariadb:3306/$db postgresql://root:password@dataset-db-postgres:5432/$db
   echo "Finished migrating $db to Postgres"
 }
 
