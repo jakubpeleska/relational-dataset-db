@@ -1,0 +1,39 @@
+@import '../../common/mixins'
+
+.DatasetInfoDetails
+  border-bottom 1px solid #ddd
+  clearfix()
+
+  dl
+    width 50%
+    float left
+
+  dt
+    float left
+    font-weight bold
+    margin-right 10px
+    text-align right
+    width 150px
+
+  dt,
+  dd
+    line-height 2
+
+  &-dataTypes
+    list-style none
+    padding 0
+    margin 0
+    clearfix()
+
+    li
+      float left
+
+      &:after
+        content: ', '
+        margin-right 0.25em
+
+      &:last-child:after
+        content: ''
+
+    abbr
+      border none
