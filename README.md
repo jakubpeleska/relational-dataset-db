@@ -5,3 +5,6 @@
 `docker-compose up` / `docker compose up`
 
 `bash migrate.sh`
+
+### Dependencies
+- https://docs.docker.com/compose/
