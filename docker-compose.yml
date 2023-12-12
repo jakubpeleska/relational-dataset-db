@@ -34,14 +34,18 @@ services:
 
   web:
     container_name: dataset-db-web
+    depends_on:
+      - mariadb
     build:
       context: ./web
       dockerfile: ./Dockerfile
     restart: unless-stopped
     ports:
-      - 8000:8000
+      - 8080:8080
     networks:
       - private-net
+    environment:
+      PORT: 8080
 
 networks:
   private-net:
