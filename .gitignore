@@ -1,2 +1,6 @@
-/datasets
+datasets/
+log/
+
 *.zip
+
+!.gitkeep
