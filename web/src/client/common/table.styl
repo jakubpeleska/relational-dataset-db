@@ -1,0 +1,48 @@
+table()
+  width 100%
+
+  tr
+    border-bottom 1px solid #ccc
+
+  tbody tr
+    &:hover
+      background-color #e6e6e6
+
+  th,
+  td
+    text-align center
+    padding 2px 5px
+    overflow hidden
+
+table-Sortable()
+  thead th
+    padding-right 11px
+
+  .TableCol-active-asc,
+  .TableCol-active-desc
+    padding-right 0
+    &:after
+      content ''
+      display inline-block
+      width 0
+      height 0
+      margin-left 3px
+      vertical-align middle
+      border-right 4px solid transparent
+      border-left 4px solid transparent
+
+  .TableCol-active-asc
+    &:after
+      border-bottom 4px dashed
+      border-bottom 4px solid\9
+
+  .TableCol-active-desc
+    &:after
+      border-top 4px dashed
+      border-top 4px solid\9
+
+  th
+    cursor pointer
+
+    abbr
+      cursor pointer

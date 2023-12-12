@@ -1,0 +1,48 @@
+@import '../common/colors'
+
+.FilterGroup
+  &-heading
+    position relative
+    font-size 16px
+    margin 5px 0 0 0
+    padding 8px 15px
+    background-color indigo-500
+    color #fff
+    box-shadow 0 2px 5px rgba(0,0,0,0.26)
+    cursor pointer
+
+    &:after
+      display block
+      content ''
+      position absolute
+      right 15px
+      top 50%
+      width 0
+      height 0
+      border 4px solid transparent
+      border-top-color #fff
+
+      .FilterGroup--shrinked &
+        margin-top -3px
+        margin-right -4px
+        border-color transparent
+        border-left-color #fff
+
+  &-body
+    margin 2px 0
+
+    .FilterGroup--shrinked &
+      display none
+
+  &-line
+    display block
+    padding 7px 12px
+    color #000
+    border-bottom 1px solid #ddd
+    cursor pointer
+
+    &:last-child
+      border-bottom none
+
+    input[type=checkbox]
+      margin-right 5px

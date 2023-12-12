@@ -1,0 +1,67 @@
+@import '../common/colors'
+@import '../common/mixins'
+
+form()
+  clearfix()
+
+  h3
+    font-weight normal
+    color #999
+    margin-top -.5em
+    margin-bottom 2em
+
+  label
+    display block
+
+  &-half
+    width 50%
+    float left
+
+    &:first-child
+      padding-right 1em
+
+    &:last-child
+      padding-left 1em
+
+  &-success,
+  &-error
+    padding 1em
+    margin-bottom 1em
+
+  &-success
+    background light-green-500
+    color #fff
+
+  &-error
+    background deep-orange-700
+    color #fff
+
+  &-input
+    display block
+    width 100%
+    box-sizing border-box !important
+    box-shadow inset 0 1px 2px rgba(0,0,0,0.1), 0 1px 0 rgba(255,255,255,0.1)
+    padding .5em
+    border-radius 2px
+    border 1px solid #ccc
+    margin .5em 0 2em 0
+
+    textarea&
+      height 7.5em
+      resize none
+
+  &-button
+    display inline-block
+    border none
+    background indigo-500
+    color #fff
+    padding .5em 2em
+
+    &:hover
+      background indigo-400
+
+  &-required
+    &:after
+      content '*'
+      margin-left 3px
+      color deep-orange-700

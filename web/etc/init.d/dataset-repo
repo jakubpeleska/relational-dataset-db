@@ -1,0 +1,30 @@
+#!/sbin/runscript
+
+name="Relational Dataset Repository"
+
+user="web"
+group="web"
+base_dir="/opt/dataset-repo"
+logs_dir="/var/log/dataset-repo"
+
+command="/usr/bin/node"
+command_args="${base_dir}/src/server"
+command_background="yes"
+
+start_stop_daemon_args="
+	--user $user:$group
+	--chdir $base_dir
+	--env NODE_ENV=production
+	--stdout $logs_dir/node.out.log
+	--stderr $logs_dir/node.err.log"
+
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+	use net
+	need mysql
+}
+
+start_pre() {
+	checkpath -d -o $user:$group -m 0755 $logs_dir
+}

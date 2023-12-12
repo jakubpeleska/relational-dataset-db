@@ -1,0 +1,50 @@
+@import 'mixins'
+@import 'colors'
+
+.Header
+  padding 6px 0 3px 0
+  line-height 60px
+  box-shadow 0 2px 5px rgba(0,0,0,0.26)
+
+  background-color indigo-500
+  color #000
+
+  &-inner
+    container()
+
+  img
+    vertical-align middle
+
+  h1
+    display inline-block
+    font-size 20px
+    margin 0
+    font-weight 300
+    text-transform uppercase
+
+  a
+    text-decoration none
+    color #dadada
+
+    &:hover,
+    &.active
+      color #fff
+
+  &-nav
+    display inline-block
+    list-style none
+    margin 0 0 0 50px
+    padding 0
+
+    li
+      display inline-block
+      font-size 18px
+      font-weight 300
+
+      &:after
+        color #dadada
+        content '|'
+        margin 0 8px
+
+      &:last-child:after
+        content: ''
