@@ -1,4 +1,4 @@
-# dataset-db
+# The CTU Relational Learning Repository
 
 `docker network create --driver bridge dataset-db-net`
 
