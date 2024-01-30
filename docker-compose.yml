@@ -12,8 +12,6 @@ services:
       - private-net
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_PASSWORD: password
-      MYSQL_USER: admin
     volumes:
       - ./mariadb-data:/var/lib/mysql/data
 

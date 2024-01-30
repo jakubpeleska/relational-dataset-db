@@ -6,5 +6,7 @@
 
 `bash migrate.sh`
 
+`bash mariadb_setup.sh`
+
 ### Dependencies
 - https://docs.docker.com/compose/
