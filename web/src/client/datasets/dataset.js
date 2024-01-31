@@ -123,12 +123,12 @@ export default class Dataset extends DatasetRecord {
           value: algorithm.get('value'),
         })) : List(),
       dbInfo: props.get('dbInfo')
-        ? props.get('dbInfo').map(dbInfo => new DBInfo({
-          host: dbInfo.get('host'),
-          port: dbInfo.get('port'),
-          user: dbInfo.get('user'),
-          password: dbInfo.get('password')
-      })) : Map()
+        ? new DBInfo({
+          host: props.get('dbInfo').get('host'),
+          port: props.get('dbInfo').get('port'),
+          user: props.get('dbInfo').get('user'),
+          password: props.get('dbInfo').get('password')
+        }) : Map()
     });
   }
 
@@ -144,8 +144,8 @@ export default class Dataset extends DatasetRecord {
         .set('algorithms', props.get('algorithms')
           ? props.get('algorithms').map(algorithm => Algorithm.revive(algorithm))
           : List())
-          .set('dbInfo', props.get('dbInfo')
-          ? props.get('dbInfo').map(dbInfo => DBInfo.revive(dbInfo))
+        .set('dbInfo', props.get('dbInfo')
+          ? DBInfo.revive(props.get('dbInfo'))
           : Map());
     }
     return new Dataset(props);
