@@ -28,6 +28,19 @@ class Algorithm extends AlgorithmRecord {
   }
 }
 
+const DBInfoRecord = Record({
+  host: null,
+  port: null,
+  user: null,
+  password: null
+})
+
+class DBInfo extends DBInfoRecord {
+  static revive = (props) => {
+    return new DBInfo(props);
+  }
+}
+
 const DatasetRecord = Record({
   title: null,
   alternativeNames: null,
@@ -57,7 +70,8 @@ const DatasetRecord = Record({
   targetId: null,
   targetTimestamp: null,
   references: List(),
-  algorithms: List()
+  algorithms: List(),
+  dbInfo: Map(),
 });
 
 export default class Dataset extends DatasetRecord {
@@ -107,7 +121,14 @@ export default class Dataset extends DatasetRecord {
           authorUrl: algorithm.get('author_url'),
           measure: algorithm.get('measure'),
           value: algorithm.get('value'),
-        })) : List()
+        })) : List(),
+      dbInfo: props.get('dbInfo')
+        ? props.get('dbInfo').map(dbInfo => new DBInfo({
+          host: dbInfo.get('host'),
+          port: dbInfo.get('port'),
+          user: dbInfo.get('user'),
+          password: dbInfo.get('password')
+      })) : Map()
     });
   }
 
@@ -122,7 +143,10 @@ export default class Dataset extends DatasetRecord {
           : List())
         .set('algorithms', props.get('algorithms')
           ? props.get('algorithms').map(algorithm => Algorithm.revive(algorithm))
-          : List());
+          : List())
+          .set('dbInfo', props.get('dbInfo')
+          ? props.get('dbInfo').map(dbInfo => DBInfo.revive(dbInfo))
+          : Map());
     }
     return new Dataset(props);
   }

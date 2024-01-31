@@ -1,5 +1,6 @@
 if (!process.env.IS_BROWSER) {
   var db = require('../../server/db');
+  var config = require('../../config/config.server');
 }
 
 const table = 'information';
@@ -62,6 +63,12 @@ export default {
                 .catch((err) => reject(err))
                 .then((rows) => {
                   dataset.algorithms = rows;
+                  dataset.dbInfo = {
+                    host:     config.database.host,
+                    port:     3306,
+                    user:     config.database.user,
+                    password: config.database.password,
+                  }
                   return resolve(dataset);
                 });
             });

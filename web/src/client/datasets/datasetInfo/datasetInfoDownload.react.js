@@ -9,6 +9,8 @@ export default class DatasetInfoDownload extends Component {
   }
 
   render() {
+    const dataset = this.props.dataset;
+
     return (
       <div className='DatasetInfoDownload'>
         <h2>How to download the dataset</h2>
@@ -22,10 +24,10 @@ export default class DatasetInfoDownload extends Component {
           <li>
             Use following credentials:
             <ul>
-              <li>hostname: relational.fit.cvut.cz</li>
-              <li>port: 3306</li>
-              <li>username: guest</li>
-              <li>password: relational</li>
+              <li>hostname: {dataset.dbInfo.host}</li>
+              <li>port: {dataset.dbInfo.port}</li>
+              <li>username: {dataset.dbInfo.user}</li>
+              <li>password: {dataset.dbInfo.password}</li>
             </ul>
           </li>
           <li>
