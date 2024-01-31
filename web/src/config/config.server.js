@@ -7,9 +7,9 @@ var config = {
   },
   database: {
     client:   'mysql',
-    host:     'potato.felk.cvut.cz',
+    host:     '78.128.250.186',
     user:     'guest',
-    password: 'potato-relational',
+    password: 'ctu-relational',
     database: 'meta',
     featureFunction: {
       data: {
