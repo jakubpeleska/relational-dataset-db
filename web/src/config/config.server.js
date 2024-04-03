@@ -7,7 +7,7 @@ var config = {
   },
   database: {
     client:   'mysql',
-    host:     '78.128.250.186',
+    host:     'relational.fel.cvut.cz',
     user:     'guest',
     password: 'ctu-relational',
     database: 'meta',
@@ -37,7 +37,7 @@ var config = {
         pass: "StrongHrad99"
       }
     },
-    recipient: 'Jan Motl <jan.motl@fit.cvut.cz>, Oliver Schulte <oschulte@cs.sfu.ca>'
+    recipient: 'Jakub Peleška <pelesjak@fel.cvut.cz>'
   },
   googleAnalyticsId: 'UA-61229872-1',
   isProduction: process.env.NODE_ENV === 'production',

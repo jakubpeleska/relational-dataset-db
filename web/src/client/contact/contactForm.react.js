@@ -79,12 +79,22 @@ export default class ContactForm extends Component {
 
         <div className='ContactForm-half'>
           <address>
+
+          <h3>Admin</h3>
+          <strong>Jakub Peleška</strong><br />
+          Faculty of Electrical Engineering<br />
+          Czech Technical University in Prague<br />
+          Karlovo náměstí 13, 121 35<br />
+          Czech Republic<br />
+
+          <div className='sep' />
+
+          <h3>Authors</h3>
           <strong>Jan Motl</strong><br />
           Faculty of Information Technology<br />
           Czech Technical University in Prague<br />
           Thákurova 9, 160 00<br />
           Czech Republic<br />
-          Phone: +420 603 885 753
 
           <div className='sep' />
 
@@ -93,7 +103,6 @@ export default class ContactForm extends Component {
           Simon Fraser University<br />
           Burnaby, B.C. V5A 1S6<br />
           Canada<br />
-          Phone: +1-778-782-3390 <br />
           </address>
         </div>
       </div>

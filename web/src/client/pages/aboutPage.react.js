@@ -68,7 +68,7 @@ export default class AboutPage extends Component {
                   </code> <br />
                 to:  <br />
                   <code>
-                  &emsp; read.setConnection("jdbc:mysql://relational.fit.cvut.cz:3306/mutagenesis","guest","relational");
+                  &emsp; read.setConnection("jdbc:mysql://relational.fel.cvut.cz:3306/mutagenesis","guest","relational");
                   </code> <br />
               </dd>
 
